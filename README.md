@@ -104,14 +104,3 @@ kubectl get nodes
 kubectl get pods -A
 kubectl describe ingress nginx-alb-ingress
 ```
-
-## Resume / Portfolio Notes
-
-This project is a strong example of:
-- Infrastructure as Code
-- AWS cloud provisioning
-- Kubernetes application deployment
-- Observability and alerting
-- Hands-on DevOps automation
-
-It is suitable for showcasing on GitHub and including in a DevOps or Cloud Engineer resume.
