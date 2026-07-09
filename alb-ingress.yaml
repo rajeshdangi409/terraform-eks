@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx-alb-ingress
+  namespace: default
+  annotations:
+    # Creates a public internet-facing ALB instead of an internal one.
+    alb.ingress.kubernetes.io/scheme: internet-facing
+
+    # Sends traffic directly to pod IPs for better performance with AWS CNI.
+    alb.ingress.kubernetes.io/target-type: ip
+
+    # Sets the health check path for the NGINX application.
+    alb.ingress.kubernetes.io/healthcheck-path: /
+spec:
+  ingressClassName: alb
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: nginx-service
+                port:
+                  number: 80
